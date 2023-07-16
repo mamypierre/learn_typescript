@@ -5,7 +5,7 @@ const increment = (e: Event): void =>
 {
     e.preventDefault();
      i++;
-    let  span = compteur?.querySelector('span');
+    let  span : HTMLSpanElement = compteur?.querySelector('span') as HTMLSpanElement;
 
     if (span){
         span.innerText = i.toString();
@@ -13,6 +13,17 @@ const increment = (e: Event): void =>
 }
 
 compteur?.addEventListener('click', increment);
+
+
+type User = {
+    firstname : string;
+    lastName : string;
+}
+
+ let user : User = {
+    firstname : "coucou",
+    lastName : "cwcdcw"
+ }
 
 class Test {
      test:string = '';
@@ -25,9 +36,12 @@ interface Employer<t> {
     post : string;
     salary: number;
 
-    skills : Array<t>
+    skills? : t[]
 }
 
+
+const  arr : Array<string> = [''];
+const  arr1 : string[] = [''];
 function showEmployer(employer : EmployerString ){
     console.log('post: ' + employer.post  + ', salary: ' + employer.salary);
 }
@@ -35,4 +49,20 @@ function showEmployer(employer : EmployerString ){
 type EmployerString = Employer<string>;
 
 
-showEmployer({post: "dev", salary:500, skills : ['tests'] });
+showEmployer({post: "dev", salary:500 });
+
+
+
+function identity<t>(arg: t): t {
+    return arg;
+}
+
+const a = identity<number>(3);
+
+function first<Type>( arg : Type[]): Type {
+    return arg[0];
+}
+
+const test1 = first<number>([12,25]);
+
+type Fist<Type> = ( arg : Type[]) => Type ;
