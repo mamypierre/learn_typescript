@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ES3",
+    "target": "ES2015",
     "noEmitOnError": true,
-    "strict": true
+    "strict": true,
+    "declaration": true,
+    "moduleResolution": "Node",
+    "noUncheckedIndexedAccess": true
   },
   "files": [
     "src/app.ts"

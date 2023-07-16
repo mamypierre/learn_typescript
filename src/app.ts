@@ -59,10 +59,34 @@ function identity<t>(arg: t): t {
 
 const a = identity<number>(3);
 
-function first<Type>( arg : Type[]): Type {
-    return arg[0];
+function first<Type>( arg : Type[]): Type | boolean {
+    if (arg[0])
+        return arg[0];
+   return false;
 }
 
 const test1 = first<number>([12,25]);
 
 type Fist<Type> = ( arg : Type[]) => Type ;
+
+class A {
+    protected b : string = 'est';
+    private a : number = 5; // aces a['a']
+    #c : number = 5; // real private ; js
+}
+
+interface Point {
+     x: number;
+}
+interface Point { // ouvert
+     y: number;
+}
+
+class TwoDimensionalPoint implements Point {
+    x: number = 2;
+    y: number = 1;
+
+}
+
+// tuple
+ type tuple =  [string, number];
