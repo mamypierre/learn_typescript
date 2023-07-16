@@ -20,3 +20,19 @@ class Test {
 let test = new Test();
 
 const age : number = 11 ;
+
+interface Employer<t> {
+    post : string;
+    salary: number;
+
+    skills : Array<t>
+}
+
+function showEmployer(employer : EmployerString ){
+    console.log('post: ' + employer.post  + ', salary: ' + employer.salary);
+}
+
+type EmployerString = Employer<string>;
+
+
+showEmployer({post: "dev", salary:500, skills : ['tests'] });
