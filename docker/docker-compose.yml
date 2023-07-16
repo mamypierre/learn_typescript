@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  node:
+      container_name: node_angular
+      build:
+        context: ./node
+  #    restart: always
+      user: "root"
+      environment:
+        - NODE_ENV=dev
+      working_dir: ${WORK_ROOT_DIR}
+      volumes:
+        - ../:${WORK_ROOT_DIR}
+      command: ["tail","-f", "/dev/null" ]
